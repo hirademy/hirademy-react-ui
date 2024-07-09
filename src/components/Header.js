@@ -1,11 +1,14 @@
 // Header.js
 import React, { useState } from 'react';
 import { Link } from "react-scroll";
-
+import { useNavigate } from 'react-router-dom';
 
 function Header() {
   const [isNavOpen, setIsNavOpen] = useState(false);
-
+ const navigate = useNavigate()
+ const handle = ()=>{
+  navigate('/dashboard');
+ }
   const toggleNav = () => {
     setIsNavOpen(!isNavOpen);
   };
@@ -86,6 +89,11 @@ function Header() {
             <li>
               <button className="getstarted" onClick={handleGetStarted}>
                 Get Started
+              </button>
+            </li>
+            <li>
+              <button className="getstarted" onClick={handle}>
+                DashBoard
               </button>
             </li>
           </ul>
