@@ -1,13 +1,16 @@
 import React, { useState } from 'react';
 import { Link } from "react-scroll";
 import { useAuth0 } from "@auth0/auth0-react";
-import { Link as RouterLink } from 'react-router-dom';
+import { Link as RouterLink, useNavigate } from 'react-router-dom';
 
 function Header() {
   const { user, loginWithRedirect, logout, isAuthenticated } = useAuth0();
   
   const [isNavOpen, setIsNavOpen] = useState(false);
-
+const navigate = useNavigate();
+const handle =()=>{
+  navigate("/dashboard")
+}
   const toggleNav = () => {
     setIsNavOpen(!isNavOpen);
   };
@@ -107,7 +110,10 @@ function Header() {
             ) : (
               <li>
                 <button className="login" onClick={loginWithRedirect}>Login</button>
+                 <button className="login" onClick={handle}>Dashboard</button>
+                
               </li>
+              
             )}
           </ul>
           <i className={`bi ${isNavOpen ? 'bi-x' : 'bi-list'} mobile-nav-toggle`} onClick={toggleNav}></i>
