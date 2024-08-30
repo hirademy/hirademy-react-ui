@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import companyLogo from './assets/img/technologies.jpg';
+
 const AboutVideo = ({ technologies }) => {
   return (
     <section id="about-video" className="about-video">

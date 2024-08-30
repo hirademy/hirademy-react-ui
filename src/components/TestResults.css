@@ -1,0 +1,45 @@
+/* src/components/TestResults.css */
+
+.test-results-container {
+    padding: 70px 20px 20px 20px;
+    /* Adjusted padding to account for the header */
+    max-width: 800px;
+    margin: 50px auto 0 auto;
+    /* Added 50px margin at the top */
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    /* Center text */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.test-results-container h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #16507b;
+    text-align: center;
+    /* Ensure heading is centered */
+}
+
+canvas {
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto;
+    /* Center the chart */
+}
+
+@media (max-width: 600px) {
+    .test-results-container {
+        padding: 60px 15px 15px 15px;
+        /* Adjusted padding for smaller screens */
+        max-width: 100%;
+    }
+
+    .test-results-container h2 {
+        font-size: 1.5em;
+    }
+}

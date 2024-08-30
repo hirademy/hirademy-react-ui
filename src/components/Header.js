@@ -1,18 +1,22 @@
-// Header.js
 import React, { useState } from 'react';
 import { Link } from "react-scroll";
-
+import { useAuth0 } from "@auth0/auth0-react";
+import { Link as RouterLink } from 'react-router-dom';
 
 function Header() {
+  const { user, loginWithRedirect, logout, isAuthenticated } = useAuth0();
+  
   const [isNavOpen, setIsNavOpen] = useState(false);
 
   const toggleNav = () => {
     setIsNavOpen(!isNavOpen);
   };
+
   const handleGetStarted = () => {
     // Redirect to the Google Form URL after clicking the button
     window.location.href = "https://forms.gle/zcXM6YwiU4bwxmy1A";
   };
+
   return (
     <header id="header" className="fixed-top">
       <div className="container d-flex align-items-center justify-content-between">
@@ -22,7 +26,7 @@ function Header() {
           </Link>
         </h1>
         <nav id="navbar" className={`navbar ${isNavOpen ? 'navbar-mobile' : ''}`}>
-         <ul>
+          <ul>
             <li>
               <Link
                 to="hero"
@@ -83,11 +87,28 @@ function Header() {
                 Contact
               </Link>
             </li>
-            <li>
-              <button className="getstarted" onClick={handleGetStarted}>
-                Get Started
-              </button>
-            </li>
+            {isAuthenticated ? (
+              <>
+                <li>
+                  <button className="getstarted" onClick={handleGetStarted}>
+                    Get Started
+                  </button>
+                </li>
+                <li>
+                  <button className="logout" onClick={() => logout({ returnTo: window.location.origin })}>
+                    Logout
+                  </button>
+                </li>
+                <li className="user-profile">
+                  <img src={user.picture} alt="Profile" className="profile-pic" />
+                  <RouterLink to="/dashboard" className="username">{user.name}</RouterLink>
+                </li>
+              </>
+            ) : (
+              <li>
+                <button className="login" onClick={loginWithRedirect}>Login</button>
+              </li>
+            )}
           </ul>
           <i className={`bi ${isNavOpen ? 'bi-x' : 'bi-list'} mobile-nav-toggle`} onClick={toggleNav}></i>
         </nav>

@@ -1,11 +1,13 @@
 import React, { useEffect } from 'react';
-import AboutVideo from './AboutVideo';
 import Programs from './Programs'; 
 import Products from './Products'; 
 import IconBox from './IconBox'; 
 import About from './About';
 import Contact from './Contact';
 import Counts from './Counts';
+import TestimonialsSlider from './TestimonialsSlider';
+import { InternshipSection, MentorshipSection } from './InternshipProgram'; // Adjust import based on actual exports
+import AboutVideo from './AboutVideo'; // Import AboutVideo component
 import AOS from 'aos';
 import GLightbox from 'glightbox';
 import Swiper from 'swiper';
@@ -20,7 +22,6 @@ import 'aos/dist/aos.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import 'swiper/swiper-bundle.min.css';
 import { Helmet } from 'react-helmet';
-import TestimonialsSlider from './TestimonialsSlider';
 const PureCounter = require('@srexi/purecounterjs');
 
 const technologies = [
@@ -31,12 +32,9 @@ const technologies = [
   'Cloud computing and DevOps'
 ];
 
-
 const Home = () => {
    useEffect(() => {
     (function () {
-      "use strict";
-      
       /**
        * Easy selector helper function
        */
@@ -207,41 +205,39 @@ const Home = () => {
         });
       }
 
-       /**
-   * Initiate glightbox
-   */
- const glightbox = GLightbox({
-      selector: '.glightbox',
-    });
+      /**
+       * Initiate glightbox
+       */
+      GLightbox({
+        selector: '.glightbox',
+      });
 
-    // Swiper initialization
-    new Swiper(".testimonials-slider", {
-    speed: 600,
-    loop: true,
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: false,
-    },
-    slidesPerView: "auto",
-    pagination: {
-      el: ".swiper-pagination",
-      type: "bullets",
-      clickable: true,
-    },
-    breakpoints: {
-      320: {
-        slidesPerView: 1,
-        spaceBetween: 20,
-      },
+      // Swiper initialization
+      new Swiper(".testimonials-slider", {
+        speed: 600,
+        loop: true,
+        autoplay: {
+          delay: 5000,
+          disableOnInteraction: false,
+        },
+        slidesPerView: "auto",
+        pagination: {
+          el: ".swiper-pagination",
+          type: "bullets",
+          clickable: true,
+        },
+        breakpoints: {
+          320: {
+            slidesPerView: 1,
+            spaceBetween: 20,
+          },
+          1200: {
+            slidesPerView: 3,
+            spaceBetween: 20,
+          },
+        },
+      });
 
-      1200: {
-        slidesPerView: 3,
-        spaceBetween: 20,
-      },
-    },
-  });
-
-  
       /**
        * Porfolio isotope and filter
        */
@@ -279,14 +275,10 @@ const Home = () => {
       /**
        * Initiate portfolio lightbox
        */
-      const portfolioLightbox = GLightbox({
+      GLightbox({
         selector: ".portfolio-lightbox",
       });
 
-      /**
-       * Portfolio details slider
-       */
-     
       /**
        * Animation on scroll
        */
@@ -296,20 +288,16 @@ const Home = () => {
           easing: "ease-in-out",
           once: true,
           mirror: false,
-          });
-  });
- new PureCounter();
+        });
+      });
+      new PureCounter();
     })();
   }, []);
 
-const handleButtonClick = () => {
+  const handleButtonClick = () => {
     // Redirect to the Google Form URL after clicking the button
     window.location.href = "https://forms.gle/zcXM6YwiU4bwxmy1A";
   };
-
- 
-
-
 
   return (
     <div>
@@ -320,55 +308,68 @@ const handleButtonClick = () => {
         />
       </Helmet>
       <section id="hero" className="d-flex align-items-center">
-       <div className="container position-relative" data-aos="fade-up" data-aos-delay="100">
-      <div className="row justify-content-center">
-        <div className="col-xl-7 col-lg-9 text-center">
-          <h1>A tech learning and product development platform </h1>
-          <h2>Shape your tech career journey by Participating in <br/>our R & D projects</h2>
+        <div className="container position-relative" data-aos="fade-up" data-aos-delay="100">
+          <div className="row justify-content-center">
+            <div className="col-xl-7 col-lg-9 text-center">
+              <h1>A tech learning and product development platform </h1>
+              <h2>Shape your tech career journey by Participating in <br/>our R & D projects</h2>
+            </div>
+          </div>
+          <div className="text-center">
+            <button onClick={handleButtonClick}>Get Started</button>
+          </div>
+          <IconBox />
         </div>
-      </div>
-      <div className="text-center">
-        <button onClick={handleButtonClick}>Get Started</button>
-      </div>
-      <IconBox />
-     </div>
       </section>
 
+      {/* Internship Program Section */}
+      <InternshipSection />
+      {/* Mentorship Section */}
+      <MentorshipSection />
+
       {/* About Video Section */}
-       <AboutVideo technologies={technologies} />
+      <AboutVideo technologies={technologies} />
+
       {/* Programs Section */}
       <Programs handleButtonClick={handleButtonClick} />
+
       {/* Products Section */}
       <Products />
+
       {/* Counts Section */}
-     <Counts/>
+      <Counts />
+
       {/* Cta Section */}
       <section id="cta" className="cta">
         <div className="container" data-aos="zoom-in">
-        <div className="text-center">
-          <h3>Our Vision</h3>
-          <p>Build a large Network of Software Engineers and Mentor them</p>
-          <p>Join the community of Tech Interns</p>
-          {/* <a className="cta-btn" href="#">Call To Action</a> */}
+          <div className="text-center">
+            <h3>Our Vision</h3>
+            <p>Build a large Network of Software Engineers and Mentor them</p>
+            <p>Join the community of Tech Interns</p>
+            {/* <a className="cta-btn" href="#">Call To Action</a> */}
+          </div>
         </div>
-      </div>
       </section>
+
       {/* About Us Section */}
-      <About/>
+      <About />
+
       {/* Testimonials Section */}
       <section id="testimonials" className="testimonials">
         <div className="container" data-aos="fade-up">
-        <div className="section-title">
-          <h2>Testimonials</h2>
-          <p>What they say...</p>
+          <div className="section-title">
+            <h2>Testimonials</h2>
+            <p>What they say...</p>
+          </div>
+          <TestimonialsSlider />
         </div>
-       <TestimonialsSlider/>
-       </div>
       </section>
+
+      
 
       {/* Contact Section */}
       <Contact />
-  </div>
+    </div>
   );
 };
 
