@@ -16,7 +16,7 @@ function Header() {
   return (
     <header id="header" className="fixed-top">
       <div className="container d-flex align-items-center justify-content-between">
-        <h1 className="logo">
+        <h1 className="logo ">
           <Link to="hero" spy={true} smooth={true} offset={-70} duration={500}>
             hirademy
           </Link>
@@ -44,7 +44,7 @@ function Header() {
                 offset={-70}
                 duration={500}
               >
-                Our Programs
+                Internships
               </Link>
             </li>
             <li>
@@ -83,10 +83,22 @@ function Header() {
                 Contact
               </Link>
             </li>
+            <li class="dropdown"><a href="#"><span>Coming Soon</span> <i class="bi bi-chevron-down"></i></a>
+              <ul>
+                <li><a href="#">Other Intern Roles</a></li>
+                <li><a href="#">Colleges</a></li>
+                <li><a href="#">Recruiters</a></li>
+                <li><a href="#">Companies/Clients</a></li>
+                <li><a href="#">Investors</a></li>
+                </ul>
+                </li>
             <li>
-              <button className="getstarted" onClick={handleGetStarted}>
+              <Link
+                to="programs">
+              <button className="getstarted" >
                 Get Started
               </button>
+              </Link>
             </li>
           </ul>
           <i className={`bi ${isNavOpen ? 'bi-x' : 'bi-list'} mobile-nav-toggle`} onClick={toggleNav}></i>

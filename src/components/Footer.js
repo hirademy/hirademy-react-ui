@@ -18,7 +18,7 @@ const Footer = () => {
         <div className="container">
           <div className="row">
             <div className="col-lg-3 col-md-6 footer-contact">
-              <h3>Hirademy Technologies</h3>
+              <h2>Hirademy Technologies</h2>
               <p>
                 BHIVE Workspace, HSR Layout,<br />
                 Bangalore, Karnataka<br />
@@ -29,7 +29,7 @@ const Footer = () => {
             </div>
 
             <div className="col-lg-2 col-md-6 footer-links">
-              <h5>Useful Links</h5>
+              <h3>Useful Links</h3>
               <ul>
                 <li><i className="bx bx-chevron-right"></i> <a href="#">Home</a></li>
                 <li><i className="bx bx-chevron-right"></i> <a href="#">Our programs</a></li>
@@ -50,9 +50,9 @@ const Footer = () => {
       </div>
 
       
-      <div className="container d-md-flex py-4">
-        <div className="social-links text-center text-md-right pt-3 pt-md-0">
-          <a href="https://www.linkedin.com/company/hirademy/" className="linkedin"><i className="bx bxl-linkedin"></i></a>
+      <div className="container d-flex py-4">
+        <div className="social-links text-center text-md-right  pt-md-0">
+          <a href="https://www.linkedin.com/company/hirademy/" className="linkedin "><i className="bx bxl-linkedin"></i></a>
         </div>
       </div>
     </footer>

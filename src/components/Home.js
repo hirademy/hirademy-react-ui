@@ -19,6 +19,7 @@ import 'remixicon/fonts/remixicon.css'; // Import Remixicon styles
 import 'aos/dist/aos.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import 'swiper/swiper-bundle.min.css';
+import { ReactTyped } from "react-typed";//  Text typing
 import { Helmet } from 'react-helmet';
 import TestimonialsSlider from './TestimonialsSlider';
 const PureCounter = require('@srexi/purecounterjs');
@@ -307,7 +308,21 @@ const handleButtonClick = () => {
     window.location.href = "https://forms.gle/zcXM6YwiU4bwxmy1A";
   };
 
- 
+  const textTyped = (
+    <ReactTyped
+      strings={[
+        "Technology learning",
+        "Product development",
+        "Mentorship",
+        "Hiring/Recruiting",
+      ]}
+      typeSpeed={25}
+      backSpeed={25}
+      backDelay={2000}
+      loop={true}
+      showCursor={false}
+    />
+  );
 
 
 
@@ -323,21 +338,27 @@ const handleButtonClick = () => {
        <div className="container position-relative" data-aos="fade-up" data-aos-delay="100">
       <div className="row justify-content-center">
         <div className="col-xl-7 col-lg-9 text-center">
-          <h1>A tech learning and product development platform </h1>
-          <h2>Shape your tech career journey by Participating in <br/>our R & D projects</h2>
+        <h1>Hirademy is a Platform for  <br/> 
+         <div id="typed-output">
+           {textTyped}
+          </div>
+         </h1>
+         <h4>Shape your career journey by Participating in <br/>our unique tailored internship and mentorship programs</h4>
         </div>
       </div>
-      <div className="text-center">
+      {/* <div className="text-center">
         <button onClick={handleButtonClick}>Get Started</button>
-      </div>
+      </div> */}
       <IconBox />
      </div>
       </section>
 
-      {/* About Video Section */}
-       <AboutVideo technologies={technologies} />
+       
       {/* Programs Section */}
-      <Programs handleButtonClick={handleButtonClick} />
+      <Programs handleButtonClick={handleButtonClick}
+       />
+       {/* About Video Section */}
+       <AboutVideo technologies={technologies} />
       {/* Products Section */}
       <Products />
       {/* Counts Section */}
